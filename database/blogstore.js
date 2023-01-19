@@ -33,8 +33,6 @@ const bschema = new mongoose.Schema({
     }
 })
 
-bschema.index({btitle:'text',keywords:'text'});
-
 const bmodel =  mongoose.model('probs',bschema);
 
 module.exports = bmodel;
