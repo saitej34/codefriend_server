@@ -18,7 +18,6 @@ const options = {
 const connectWithDB = () => {
     mongoose.connect(uri, options, (err, db) => {
       if (err) console.error(err);
-      else console.log("database connection")
     })
 }
 

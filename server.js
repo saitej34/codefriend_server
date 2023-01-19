@@ -9,9 +9,7 @@ require('./database/adminschema')
 app.use(require('./routes/route'));
 dotenv.config({path:'./config.env'})
 
-const port = process.env.port;
-
-console.log(port)
+const port = process.env.port || 3201;
 
 
 app.listen(port)

@@ -14,6 +14,6 @@ module.exports = function(req,res,next)
         next();
     }
     catch{
-        console.log("error");
+        
     }
 }

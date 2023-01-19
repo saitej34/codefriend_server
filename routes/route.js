@@ -53,9 +53,7 @@ router.get('/dashboard',(req,res)=>{
 
 router.post('/register',async(req,res)=>{
       const {email,name,password,cpassword} = req.body;
-      console.log(req.body)
       const exist = await model.find({email});
-      console.log(exist)
       const options = {
         from:"yelagandulasaiteja70@gmail.com",
         to:email,
@@ -79,14 +77,14 @@ router.post('/register',async(req,res)=>{
              sendmail.sendMail(options,(err,res)=>{
              if(err)
               {
-                  console.log(err);
+                 
               }
               console.log(res);
               })
               return res.send({"message":"Registration Successful"})
           })
           .catch((err)=>{
-            console.log(err)
+            
           })
       }
       
@@ -95,9 +93,9 @@ router.post('/register',async(req,res)=>{
 
 
 router.post('/posts',async(req,res)=>{
-      console.log(req.body);
+     
       const tk = req.header('token');  
-      console.log(tk)
+      
       const ids = jwt.verify(tk,"saiteja")
       const uid  = ids.user.id;
       let em;
@@ -141,11 +139,11 @@ router.get('/get/:id',async(req,res)=>{
 
 router.get('/getp/:ids',async(req,res)=>{
        const ids = req.params.ids;
-       console.log(ids);
+       
        const jw = jwt.verify(ids,"saiteja");
        const idv = jw.user.id;
        const bdata = await bmodel.find({userid:idv})
-       console.log(bdata);
+      
        res.json(bdata)
 
 })
